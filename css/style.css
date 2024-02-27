@@ -43,9 +43,12 @@ th {
 }
 
 .even-row {
-  background-color: #acf4fb;
+  background-color: #fffbc8;
 }
 
+.odd-row {
+  background-color: #acf4fb;
+}
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301

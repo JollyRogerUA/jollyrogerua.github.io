@@ -24,7 +24,7 @@ table += '</tr></thead><tbody>';
 
 // Iterate over the data and populate the table rows
 filteredData.forEach((item, index) => {
-    table += '<tr class="' + (index % 2 === 0 ? 'even-row' : '') + '">';
+    table += '<tr class="' + (index % 2 === 0 ? 'even-row' : 'odd-row') + '">';
     table += '<td class="center-align">' + item.cc + '</td>';
     table += '<td class="right-align">' + parseFloat(item.rate).toFixed(2) + '</td>';
     table += '<td class="center-align">' + item.exchangedate + '</td>';
