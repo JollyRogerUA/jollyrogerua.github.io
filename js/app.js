@@ -10,7 +10,7 @@ window.onload = function() {
             day: 'numeric'
         });
         // Filter data for USD and EUR
-        let filteredData = data.filter(item => item.cc === 'USD' || item.cc === 'EUR');
+        let filteredData = data.filter(item => item.cc === 'USD' || item.cc === 'EUR' || item.cc === 'GBP' || item.cc === 'PLN');
 
         // Create the table header with the current date
         let table = '<table border="1"><thead><tr><th class="center-align" colspan="4">Exchange Rates - ' + currentDate + '</th></tr><tr>';
