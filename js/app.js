@@ -48,11 +48,13 @@ window.onload = function() {
     .then(data => {
         // Create the table header for the second table
         let table2 = '<table><thead>';
-        table2 += '<tr><th class="center-align colspan=3">Exchange Rates by PrivatBank for ' + currentDate + '</th></tr><tr>';
+        table2 += '<tr><th class="center-align" colspan=3>Exchange Rates by PrivatBank for ' + currentDate + '</th></tr>'
+        table2 += '<tr>';
         table2 += '<th class="center-align">Currency</th>';
         table2 += '<th class="center-align">Exchange Rate</th>';
         table2 += '<th class="center-align">Date</th>';
-        table2 += '</tr></thead><tbody>';
+        table2 += '</tr>';
+        table2 += '</thead><tbody>';
 
         // Iterate over the data and populate the table rows
         data.forEach((item, index) => {
