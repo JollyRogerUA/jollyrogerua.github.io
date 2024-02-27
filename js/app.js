@@ -19,7 +19,7 @@ window.onload = function() {
 
         // Create the table header with the current date
         let table = '<table><thead><tr>';
-        table += '<th colspan=3>Exchange Rates by NBU for ' + currentDate + '</th>';
+        table += '<th colspan=3>Exchange Rates by NBU for ' + currentDate + ' ver 0.5</th>';
         table += '<th class="center-align">Currency</th>';
         table += '<th class="center-align">Exchange Rate</th>';
         table += '<th class="center-align">Date</th>';
