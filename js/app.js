@@ -1,7 +1,7 @@
 window.onload = function() {
     
     // Set current version
-    let ver = '0.8';
+    let ver = '0.9';
 
     // Get the current date
     let currentDate = new Date().toLocaleDateString('ru-RU', {
@@ -22,7 +22,7 @@ window.onload = function() {
 
         // Create the table header with the current date
         let table = '<table>';
-        table += '<tr><th colspan=3>Exchange Rates by NBU for ' + currentDate + ' ver=' + ver + '</th></tr>';
+        table += '<tr><th colspan=3 class="center-align">Exchange Rates by NBU for ' + currentDate + ' ver=' + ver + '</th></tr>';
         table += '<tr>';
         table += '<th class="center-align">Currency</th>';
         table += '<th class="center-align">Exchange Rate</th>';
