@@ -19,7 +19,7 @@ window.onload = function() {
 
         // Create the table header with the current date
         let table = '<table><thead><tr>';
-        table += '<th class="center-align" colspan=3>Exchange Rates by NBU for ' + currentDate + '</th>';
+        table += '<th colspan=3>Exchange Rates by NBU for ' + currentDate + '</th>';
         table += '<th class="center-align">Currency</th>';
         table += '<th class="center-align">Exchange Rate</th>';
         table += '<th class="center-align">Date</th>';
@@ -48,7 +48,7 @@ window.onload = function() {
     .then(data => {
         // Create the table header for the second table
         let table2 = '<table><thead>';
-        table2 += '<tr><th class="center-align" colspan=3>Exchange Rates by PrivatBank for ' + currentDate + '</th></tr>'
+        table2 += '<tr><th colspan=3>Exchange Rates by PrivatBank for ' + currentDate + '</th></tr>'
         table2 += '<tr>';
         table2 += '<th class="center-align">Currency</th>';
         table2 += '<th class="center-align">Exchange Rate</th>';
