@@ -9,31 +9,25 @@ window.onload = function() {
             month: 'long',
             day: 'numeric'
         });
-        // Filter data for USD and EUR
-        let filteredData = data.filter(item => item.cc === 'USD' || item.cc === 'EUR' || item.cc === 'GBP' || item.cc === 'PLN');
+// Sort data by currency code
+data.sort((a, b) => (a.cc > b.cc) ? 1 : ((b.cc > a.cc) ? -1 : 0));
 
-        // Create the table header with the current date
-        let table = '<table border="1"><thead><tr><th class="center-align" colspan="4">Exchange Rates - ' + currentDate + '</th></tr><tr>';
-        table += '<th class="center-align">Currency Title</th>';
-        table += '<th class="center-align">Currency Code</th>';
-        table += '<th class="center-align">Exchange Rate</th>';
-        table += '<th class="center-align">Date</th>';
-        table += '</tr></thead><tbody>';
+// Create the table header with the current date
+let table = '<table><thead><tr><th>Currency</th><th class="right-align">Exchange Rate</th><th>Units</th></tr></thead><tbody>';
 
-        // Iterate over the data and populate the table rows
-        filteredData.forEach(item => {
-            table += '<tr>';
-            table += '<td>' + item.txt + '</td>'; 
-            table += '<td class="center-align">' + item.cc + '</td>';
-            table += '<td class="right-align">' + parseFloat(item.rate).toFixed(2) + '</td>';
-            table += '<td class="center-align">' + item.exchangedate + '</td>';
-            table += '</tr>';
-        });
+// Iterate over the data and populate the table rows
+data.forEach((item, index) => {
+    table += '<tr class="' + (index % 2 === 0 ? 'even-row' : '') + '">';
+    table += '<td class="center-align">' + item.cc + '</td>';
+    table += '<td class="right-align">' + parseFloat(item.rate).toFixed(2) + '</td>';
+    table += '<td class="center-align">' + item.exchangedate + '</td>';
+    table += '</tr>';
+});
 
-        table += '</tbody></table>';
+table += '</tbody></table>';
 
-        // Display the table in the HTML page
-        document.getElementById('exchangeTable').innerHTML = table;
-    })
-    .catch(error => console.error('Error fetching data:', error));
+// Display the table in the HTML page
+document.getElementById('exchangeTable').innerHTML = table;
+})
+.catch(error => console.error('Error fetching data:', error));
 }
