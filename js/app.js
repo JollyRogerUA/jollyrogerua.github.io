@@ -36,6 +36,7 @@ window.onload = function() {
     // Display the table in the HTML page
     document.getElementById('exchangeTable1').innerHTML = table;
     })
+    .catch(error => console.error('Error fetching data:', error));
     // --- End of the 1st table ---
 
     // Fetch JSON data from the second provided URL
@@ -47,10 +48,9 @@ window.onload = function() {
 
         // Iterate over the data and populate the table rows
         data.forEach((item, index) => {
-            table2 += '<tr class="' + (index % 2 === 0 ? 'even-row' : '') + '">';
-            table2 += '<td>' + item.ccy + '</td>';
+            table2 += '<tr class="' + (index % 2 === 0 ? 'even-row' : 'odd_row') + '">';
+            table2 += '<td class="center-align">' + item.ccy + '</td>';
             table2 += '<td class="right-align">' + parseFloat(item.buy).toFixed(2) + '</td>';
-            table2 += '<td>' + item.base_ccy + '</td>';
             table2 += '</tr>';
         });
 
