@@ -1,15 +1,17 @@
 window.onload = function() {
 
+        // Get the current date
+    let currentDate = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
     // Fetch JSON data from the provided URL
     fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')
     .then(response => response.json())
     .then(data => {
-        // Get the current date
-        let currentDate = new Date().toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
+
         // Sort data by currency code
         data.sort((a, b) => (a.cc > b.cc) ? 1 : ((b.cc > a.cc) ? -1 : 0));
 
@@ -17,6 +19,7 @@ window.onload = function() {
 
         // Create the table header with the current date
         let table = '<table><thead><tr>';
+        table += '<th class="center-align colspan=3">Exchange Rates by NBU for ' + currentDate + '</th>';
         table += '<th class="center-align">Currency</th>';
         table += '<th class="center-align">Exchange Rate</th>';
         table += '<th class="center-align">Date</th>';
@@ -40,15 +43,20 @@ window.onload = function() {
     // --- End of the 1st table ---
 
     // Fetch JSON data from the second provided URL
-    fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+    fetch('https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5')
     .then(response => response.json())
     .then(data => {
         // Create the table header for the second table
-        let table2 = '<table><thead><tr><th>Currency</th><th class="right-align">Exchange Rate</th><th>Units</th></tr></thead><tbody>';
+        let table2 = '<table><thead>';
+        table2 += '<tr><th class="center-align colspan=3">Exchange Rates by PrivatBank for ' + currentDate + '</th></tr><tr>';
+        table2 += '<th class="center-align">Currency</th>';
+        table2 += '<th class="center-align">Exchange Rate</th>';
+        table2 += '<th class="center-align">Date</th>';
+        table2 += '</tr></thead><tbody>';
 
         // Iterate over the data and populate the table rows
         data.forEach((item, index) => {
-            table2 += '<tr class="' + (index % 2 === 0 ? 'even-row' : 'odd_row') + '">';
+            table2 += '<tr class="' + (index % 2 === 0 ? 'even-row' : 'odd-row') + '">';
             table2 += '<td class="center-align">' + item.ccy + '</td>';
             table2 += '<td class="right-align">' + parseFloat(item.buy).toFixed(2) + '</td>';
             table2 += '</tr>';
