@@ -9,6 +9,8 @@ window.onload = function() {
             month: 'long',
             day: 'numeric'
         });
+        // Filter data for USD and EUR
+        let filteredData = data.filter(item => item.cc === 'USD' || item.cc === 'EUR');
 
         // Create the table header with the current date
         let table = '<table border="1"><thead><tr><th class="center-align" colspan="4">Exchange Rates - ' + currentDate + '</th></tr><tr>';
@@ -19,7 +21,7 @@ window.onload = function() {
         table += '</tr></thead><tbody>';
 
         // Iterate over the data and populate the table rows
-        data.forEach(item => {
+        filteredData.forEach(item => {
             table += '<tr>';
             table += '<td>' + item.txt + '</td>'; 
             table += '<td class="center-align">' + item.cc + '</td>';
