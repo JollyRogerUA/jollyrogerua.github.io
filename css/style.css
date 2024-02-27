@@ -43,11 +43,11 @@ th {
 }
 
 .even-row {
-  background-color: #fffbc8;
+  background-color: #ffffff;
 }
 
 .odd-row {
-  background-color: #acf4fb;
+  background-color: #abeeff;
 }
 /*
  * Remove text-shadow in selection highlight:
