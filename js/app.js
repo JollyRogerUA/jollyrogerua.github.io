@@ -9,14 +9,21 @@ window.onload = function() {
             month: 'long',
             day: 'numeric'
         });
+
 // Sort data by currency code
 data.sort((a, b) => (a.cc > b.cc) ? 1 : ((b.cc > a.cc) ? -1 : 0));
 
+let filteredData = data.filter(item => item.cc === 'USD' || item.cc === 'EUR' || item.cc === 'GBP' || item.cc === 'PLN');
+
 // Create the table header with the current date
-let table = '<table><thead><tr><th>Currency</th><th class="right-align">Exchange Rate</th><th>Units</th></tr></thead><tbody>';
+let table = '<table><thead><tr>';
+table += '<th class="center-align">Currency</th>';
+table += '<th class="center-align">Exchange Rate</th>';
+table += '<th class="center-align">Date</th>';
+table += '</tr></thead><tbody>';
 
 // Iterate over the data and populate the table rows
-data.forEach((item, index) => {
+filteredata.forEach((item, index) => {
     table += '<tr class="' + (index % 2 === 0 ? 'even-row' : '') + '">';
     table += '<td class="center-align">' + item.cc + '</td>';
     table += '<td class="right-align">' + parseFloat(item.rate).toFixed(2) + '</td>';
