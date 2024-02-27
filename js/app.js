@@ -26,6 +26,11 @@ window.onload = function() {
 
     table += '</tbody></table>';
 
+    // Display the table in the HTML page
+    document.getElementById('exchangeTable1').innerHTML = table;
+    
+    // --- End of the 1st table ---
+
     // Fetch JSON data from the second provided URL
     fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
     .then(response => response.json())
