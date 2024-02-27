@@ -19,7 +19,7 @@ window.onload = function() {
 
         // Create the table header with the current date
         let table = '<table><thead><tr>';
-        table += '<th class="center-align colspan=3">Exchange Rates by NBU for ' + currentDate + '</th>';
+        table += '<th class="center-align" colspan=3>Exchange Rates by NBU for ' + currentDate + '</th>';
         table += '<th class="center-align">Currency</th>';
         table += '<th class="center-align">Exchange Rate</th>';
         table += '<th class="center-align">Date</th>';
@@ -43,7 +43,7 @@ window.onload = function() {
     // --- End of the 1st table ---
 
     // Fetch JSON data from the second provided URL
-    fetch('https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5')
+    fetch('https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5&cors=true')
     .then(response => response.json())
     .then(data => {
         // Create the table header for the second table
