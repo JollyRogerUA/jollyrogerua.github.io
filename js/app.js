@@ -1,6 +1,9 @@
 window.onload = function() {
+    
+    // Set current version
+    let ver = '0.7';
 
-        // Get the current date
+    // Get the current date
     let currentDate = new Date().toLocaleDateString('ru-RU', {
         year: 'numeric',
         month: 'numeric',
@@ -19,7 +22,7 @@ window.onload = function() {
 
         // Create the table header with the current date
         let table = '<table><thead><tr>';
-        table += '<th colspan=3>Exchange Rates by NBU for ' + currentDate + ' ver 0.5</th>';
+        table += '<th colspan=3>Exchange Rates by NBU for ' + currentDate + ' ver=' + ver + '</th>';
         table += '</tr><tr>';
         table += '<th class="center-align">Currency</th>';
         table += '<th class="center-align">Exchange Rate</th>';
@@ -49,8 +52,8 @@ window.onload = function() {
     .then(data => {
         // Create the table header for the second table
         let table2 = '<table><thead>';
-        table2 += '<tr><th colspan=3>Exchange Rates by PrivatBank for ' + currentDate + '</th></tr>'
-        table2 += '<tr>';
+        table2 += '<th colspan=3>Exchange Rates by PrivatBank for ' + currentDate + ' ver=' + ver + '</th>';
+        table2 += '</tr><tr>';
         table2 += '<th class="center-align">Currency</th>';
         table2 += '<th class="center-align">Exchange Rate</th>';
         table2 += '<th class="center-align">Date</th>';
