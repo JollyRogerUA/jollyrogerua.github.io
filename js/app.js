@@ -1,7 +1,7 @@
 window.onload = function() {
     
     // Set current version
-    let ver = '0.9';
+    let ver = '0.9.1';
 
     // Get the current date
     let currentDate = new Date().toLocaleDateString('ru-RU', {
@@ -33,7 +33,7 @@ window.onload = function() {
         filteredData.forEach((item, index) => {
             table += '<tr class="' + (index % 2 === 0 ? 'even-row' : 'odd-row') + '">';
             table += '<td class="center-align">' + item.cc + '</td>';
-            table += '<td class="right-align">' + parseFloat(item.rate).toFixed(2) + '</td>';
+            table += '<td class="right-align">' + parseFloat(item.rate).toFixed(4) + '</td>';
             table += '<td class="center-align">' + item.exchangedate + '</td>';
             table += '</tr>';
         });
